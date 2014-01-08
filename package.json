@@ -1,0 +1,55 @@
+{
+  "name": "syntaxhighlighter-html-renderer",
+  "version": "0.5.0",
+  "description": "HTML renderer module for SyntaxHighlighter.",
+  "keywords": [
+    "syntaxhighlighter",
+    "options",
+    "parser"
+  ],
+  "homepage": "https://github.com/alexgorbatchev/syntaxhighlighter-html-renderer",
+  "bugs": "https://github.com/alexgorbatchev/syntaxhighlighter-html-renderer/issues",
+  "author": {
+    "name": "Alex Gorbatchev",
+    "email": "",
+    "url": "https://github.com/alexgorbatchev"
+  },
+  "main": "./lib/renderer.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexgorbatchev/syntaxhighlighter-html-renderer.git"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/grunt test"
+  },
+  "devDependencies": {
+    "chai": "~1.8.1",
+    "coffee-errors": "~0.8.5",
+    "coffee-script": "~1.6.3",
+    "coffeeify": "~0.5.2",
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-karma": "~0.6.2",
+    "grunt-mocha-cli": "~1.5.0",
+    "karma": "~0.10.9",
+    "karma-browserify": "0.0.6",
+    "karma-chai": "0.0.2",
+    "karma-chrome-launcher": "~0.1.2",
+    "karma-coffee-preprocessor": "~0.1.2",
+    "karma-firefox-launcher": "~0.1.3",
+    "karma-mocha": "~0.1.1",
+    "mocha": "~1.16.2"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    },
+    {
+      "type": "LGPL"
+    }
+  ]
+}
