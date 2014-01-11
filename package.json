@@ -40,7 +40,8 @@
     "karma-mocha": "~0.1.1",
     "mocha": "~1.16.2",
     "syntaxhighlighter-parser": "~0.5.1",
-    "cheerio": "~0.13.1"
+    "cheerio": "~0.13.1",
+    "brfs": "0.0.8"
   },
   "engines": {
     "node": ">=0.10.0",

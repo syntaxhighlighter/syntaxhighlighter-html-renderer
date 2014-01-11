@@ -6,7 +6,8 @@ module.exports = (grunt) ->
   grunt.config.init
     karma:
       options: configFile: 'karma.conf.coffee'
-      test: singleRun: true
+      singleRun: singleRun: true
+      background: background: true
 
     mochacli:
       options:
@@ -23,7 +24,7 @@ module.exports = (grunt) ->
 
       lib:
         files: ['lib/**/*.js', 'test/spec.coffee']
-        tasks: ['test']
+        tasks: ['mochacli', 'karma:background:run']
 
-  grunt.registerTask 'test', ['mochacli', 'karma']
-  grunt.registerTask 'dev', ['watch']
+  grunt.registerTask 'test', ['mochacli', 'karma:singleRun']
+  grunt.registerTask 'dev', ['karma:background', 'watch']

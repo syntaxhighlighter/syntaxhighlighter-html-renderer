@@ -7,9 +7,9 @@ module.exports = (config) ->
       'test/**/spec.coffee': ['coffee', 'browserify']
 
     browserify:
-      transform: ['coffeeify']
+      transform: ['coffeeify', 'brfs']
       extensions: ['.coffee']
-      noParse: ['cheerio']
+      noParse: ['cheerio', 'coffee-errors']
       watch: true
       debug: true
 

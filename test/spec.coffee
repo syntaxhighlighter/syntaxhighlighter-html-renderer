@@ -1,25 +1,67 @@
+`$ = require('cheerio')` if typeof $ is 'undefined'
+
 chai = require 'chai'
+fs = require 'fs'
+
 parser = require 'syntaxhighlighter-parser'
 {Renderer} = require '..'
 expect = chai.expect
-
-`$ = require('cheerio')` if typeof $ is 'undefined'
 
 REGEX_LIST = [
   {regex: /hello|world/g, css: 'greeting'}
   {regex: /\w+/g, css: 'word'}
 ]
 
+CODE = fs.readFileSync "#{__dirname}/fixture.js", 'utf8'
+
+render = (code, opts) ->
+  matches = parser.parse code, REGEX_LIST
+  renderer = new Renderer code, matches, opts
+  renderer.render()
+
 describe 'syntaxhighlighter-html-renderer', ->
-  describe 'new brush', ->
-    element = null
+  element = null
 
-    before ->
-      code = "hello all world"
-      matches = parser.parse code, REGEX_LIST
-      renderer = new Renderer code, matches, {}
-      element = $ renderer.render()
+  itHasElements = ({gutter, lineCount, firstLine, highlight} = {}) ->
+    firstLine ?= 1
 
-    describe 'instance', ->
-      it '...', ->
-        console.log element
+    describe 'gutter', ->
+      if gutter
+        it 'is present', -> expect($ 'td.gutter', element).to.have.length 1
+        it "has #{lineCount} lines", -> expect($ 'td.gutter > .line', element).to.have.length lineCount
+        it "starts at line #{firstLine}", -> expect($($('td.gutter > .line', element)[0]).hasClass 'number' + firstLine).to.be.true
+
+        for lineNumber in highlight or []
+          it "has line #{lineNumber} highlighted", ->
+            expect($("td.gutter > .line.number#{lineNumber}", element).hasClass 'highlighted').to.be.true
+
+      else
+        it 'is not present', -> expect($ 'td.gutter', element).to.have.length 0
+
+    describe 'code', ->
+      it 'is present', -> expect($ 'td.code', element).to.have.length 1
+      it "has #{lineCount} lines", -> expect($ 'td.code > .container > .line', element).to.have.length lineCount
+      it "starts at line #{firstLine}", -> expect($($('td.code > .container > .line', element)[0]).hasClass 'number' + firstLine).to.be.true
+
+  describe 'rendering with default options', ->
+    before -> element = $ render CODE, {}
+    itHasElements gutter: yes, lineCount: 13
+
+  describe 'rendering with options', ->
+    describe 'without gutter', ->
+      before -> element = $ render CODE, gutter: false
+      itHasElements gutter: no, lineCount: 13
+
+    describe 'custom first line', ->
+      before -> element = $ render CODE, firstLine: 10
+      itHasElements gutter: yes, lineCount: 13, firstLine: 10
+
+    describe 'line highlighting', ->
+      describe 'one line', ->
+        before -> element = $ render CODE, highlight: 1
+        itHasElements gutter: yes, lineCount: 13, highlight: [1]
+
+      describe 'multiple lines', ->
+        before -> element = $ render CODE, highlight: ['3', '4']
+        itHasElements gutter: yes, lineCount: 13, highlight: [3, 4]
+
