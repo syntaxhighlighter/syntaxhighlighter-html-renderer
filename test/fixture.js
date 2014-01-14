@@ -1,5 +1,6 @@
 	/**
 	 * Determines if specified line number is in the highlighted list.
+	 * https://github.com/alexgorbatchev
 	 */
 	var isLineHighlighted = function(lineNumber)
 	{
