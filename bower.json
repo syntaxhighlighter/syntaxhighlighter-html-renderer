@@ -1,7 +1,0 @@
-{
-  "name": "syntaxhighlighter-html-renderer",
-  "version": "0.0.0",
-  "devDependencies": {
-    "jquery": "~2.0.0"
-  }
-}
