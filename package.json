@@ -14,7 +14,7 @@
     "email": "",
     "url": "https://github.com/alexgorbatchev"
   },
-  "main": "./lib/syntaxhighlighter-html-renderer.js",
+  "main": "./lib/renderer.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/alexgorbatchev/syntaxhighlighter-html-renderer.git"
