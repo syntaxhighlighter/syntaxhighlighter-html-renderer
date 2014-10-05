@@ -3,7 +3,7 @@
 chai = require 'chai'
 fs = require 'fs'
 
-parser = require 'syntaxhighlighter-parser'
+parser = require 'parser'
 {Renderer} = require '..'
 expect = chai.expect
 
@@ -19,7 +19,7 @@ render = (code, opts = {}) ->
   renderer = new Renderer code, matches, opts
   renderer.render()
 
-describe 'syntaxhighlighter-html-renderer', ->
+describe 'html-renderer', ->
   element = null
 
   itHasElements = ({gutter, lineCount, firstLine, highlight} = {}) ->

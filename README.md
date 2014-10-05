@@ -1,16 +1,12 @@
-# syntaxhighlighter-html-renderer
+# syntaxhighlighter/html-renderer
 
-HTML renderer module for [SyntaxHighlighter](https://github.com/syntaxhighlighter/syntaxhighlighter).
+HTML renderer module for [SyntaxHighlighter](https://github.com/syntaxhighlighter).
 
-[![Dependency status](https://david-dm.org/syntaxhighlighter/syntaxhighlighter-html-renderer.svg)](https://david-dm.org/syntaxhighlighter/syntaxhighlighter-html-renderer)
-[![devDependency Status](https://david-dm.org/syntaxhighlighter/syntaxhighlighter-html-renderer/dev-status.svg)](https://david-dm.org/syntaxhighlighter/syntaxhighlighter-html-renderer#info=devDependencies)
-[![Build Status](https://travis-ci.org/syntaxhighlighter/syntaxhighlighter-html-renderer.svg)](https://travis-ci.org/syntaxhighlighter/syntaxhighlighter-html-renderer)
-
-[![NPM](https://nodei.co/npm/syntaxhighlighter-html-renderer.svg)](https://npmjs.org/package/syntaxhighlighter-html-renderer)
+[![Build Status](https://travis-ci.org/alexgorbatchev/html-renderer.svg)](https://travis-ci.org/alexgorbatchev/html-renderer)
 
 ## Installation
 
-    npm install syntaxhighlighter-html-renderer
+    npm install syntaxhighlighter/html-renderer
 
 ## Testing
 
@@ -18,4 +14,4 @@ HTML renderer module for [SyntaxHighlighter](https://github.com/syntaxhighlighte
 
 ## License
 
-GPL & MIT
+MIT
