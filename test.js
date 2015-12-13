@@ -2,7 +2,7 @@ const $ = require('cheerio');
 const chai = require('chai');
 const fs = require('fs');
 const parser = require('parser');
-const {Renderer} = require('./renderer');
+const Renderer = require('./renderer');
 const expect = chai.expect;
 
 const REGEX_LIST = [
@@ -12,11 +12,11 @@ const REGEX_LIST = [
 
 const CODE = fs.readFileSync(`${__dirname}/test.fixture.js`, 'utf8');
 
-function render(code, opts = {}) {
+function getHtml(code, opts = {}) {
   const matches = parser.parse(code, opts.regexList || REGEX_LIST);
   const renderer = new Renderer(code, matches, opts);
-  return renderer.render();
-};
+  return renderer.getHtml();
+}
 
 describe('html-renderer', function() {
   let element = null;
@@ -46,35 +46,35 @@ describe('html-renderer', function() {
   };
 
   describe('rendering with default options', function() {
-    before(() => element = $(render(CODE, {})));
+    before(() => element = $(getHtml(CODE, {})));
     itHasElements({gutter: true, lineCount: 14});
   });
 
   describe('rendering with options', function() {
     describe('without gutter', function() {
-      before(() => element = $(render(CODE, {gutter: false})));
+      before(() => element = $(getHtml(CODE, {gutter: false})));
       itHasElements({gutter: false, lineCount: 14});
     });
 
     describe('custom first line', function() {
-      before(() => element = $(render(CODE, {firstLine: 10})));
+      before(() => element = $(getHtml(CODE, {firstLine: 10})));
       itHasElements({gutter: true, lineCount: 14, firstLine: 10});
     });
 
     describe('line highlighting', function() {
       describe('one line', function() {
-        before(() => element = $(render(CODE, {highlight: 1})));
+        before(() => element = $(getHtml(CODE, {highlight: 1})));
         itHasElements({gutter: true, lineCount: 14, highlight: [1]});
       });
 
       describe('multiple lines', function() {
-        before(() => element = $(render(CODE, {highlight: ['3', '4']})));
+        before(() => element = $(getHtml(CODE, {highlight: ['3', '4']})));
         itHasElements({gutter: true, lineCount: 14, highlight: [3, 4]});
       });
     });
 
     describe('processing URLs', function() {
-      before(() => element = $(render(CODE, {autoLinks: true, regexList: []})));
+      before(() => element = $(getHtml(CODE, {autoLinks: true, regexList: []})));
       itHasElements({gutter: true, lineCount: 14});
       it('has URL on line 3', function() {
         expect($("td.code > .container > .line.number3 > .plain > a", element)).to.have.length(1);

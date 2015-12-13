@@ -48,7 +48,7 @@ function Renderer(code, matches, opts)
   _this.matches = matches;
   _this.lines = getLines(code);
   _this.linesToHighlight = getLinesToHighlight(opts);
-};
+}
 
 Renderer.prototype = {
   /**
@@ -369,34 +369,24 @@ Renderer.prototype = {
     if (opts.autoLinks)
       html = _this.processUrls(html);
 
-    html =
-      '<div class="' + classes.join(' ') + '">'
-        // + (opts.toolbar ? sh.toolbar.getHtml(_this) : '')
-        + '<table border="0" cellpadding="0" cellspacing="0">'
-          + _this.getTitleHtml(opts.title)
-          + '<tbody>'
-            + '<tr>'
-              + (gutter ? '<td class="gutter">' + _this.renderLineNumbers(code) + '</td>' : '')
-              + '<td class="code">'
-                + '<div class="container">'
-                  + html
-                + '</div>'
-              + '</td>'
-            + '</tr>'
-          + '</tbody>'
-        + '</table>'
-      + '</div>'
-      ;
+    html = `
+      <div class="${classes.join(' ')}">
+        <table border="0" cellpadding="0" cellspacing="0">
+          ${_this.getTitleHtml(opts.title)}
+          <tbody>
+            <tr>
+              ${gutter ? `<td class="gutter">${_this.renderLineNumbers(code)}</td>` : ``}
+              <td class="code">
+                <div class="container">${html}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    `;
 
     return html;
   },
-
-  render: function()
-  {
-    return this.getHtml();
-  }
 };
 
-module.exports = {
-  Renderer: Renderer
-};
+module.exports = Renderer;
