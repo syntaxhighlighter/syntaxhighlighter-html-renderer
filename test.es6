@@ -2,7 +2,7 @@ const $ = require('cheerio');
 const chai = require('chai');
 const fs = require('fs');
 const parser = require('parser');
-const Renderer = require('./renderer');
+const Renderer = require('./html-renderer');
 const expect = chai.expect;
 
 const REGEX_LIST = [
@@ -10,7 +10,7 @@ const REGEX_LIST = [
   {regex: /\w+/g, css: 'word'}
 ];
 
-const CODE = fs.readFileSync(`${__dirname}/test.fixture.js`, 'utf8');
+const CODE = fs.readFileSync(`${__dirname}/fixture.js`, 'utf8');
 
 function getHtml(code, opts = {}) {
   const matches = parser.parse(code, opts.regexList || REGEX_LIST);
