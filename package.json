@@ -13,13 +13,13 @@
     "name": "Alex Gorbatchev",
     "url": "https://github.com/alexgorbatchev"
   },
-  "main": "./html-renderer.es6",
+  "main": "./html-renderer.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/syntaxhighlighter/html-renderer.git"
   },
   "scripts": {
-    "test": "mocha --opts mocha.opts test.es6"
+    "test": "mocha --opts mocha.opts test.js"
   },
   "devDependencies": {
     "babel-core": "^6.1.21",
@@ -33,5 +33,10 @@
     "node": ">=0.10.0",
     "npm": ">=1.2.10"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
 }
