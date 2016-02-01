@@ -1,5 +1,5 @@
 {
-  "name": "html-renderer",
+  "name": "@alexgorbatchev/html-renderer",
   "version": "4.0.0",
   "description": "HTML renderer module for SyntaxHighlighter.",
   "keywords": [
