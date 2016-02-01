@@ -2,11 +2,11 @@
 
 HTML renderer module for [SyntaxHighlighter](https://github.com/syntaxhighlighter). It takes in the source, list of processed matches and returns HTML string.
 
-[![Build Status](https://travis-ci.org/alexgorbatchev/html-renderer.svg)](https://travis-ci.org/alexgorbatchev/html-renderer)
+[![Build Status](https://travis-ci.org/syntaxhighlighter/html-renderer.svg)](https://travis-ci.org/syntaxhighlighter/html-renderer)
 
 ## Installation
 
-    npm install syntaxhighlighter/html-renderer
+    npm install @alexgorbatchev/html-renderer
 
 ## Testing
 
