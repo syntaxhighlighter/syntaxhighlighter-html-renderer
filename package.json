@@ -28,7 +28,7 @@
     "chai": "^3.4.1",
     "cheerio": "^0.19.0",
     "mocha": "^2.3.4",
-    "parser": "^4.0.0"
+    "syntaxhighlighter-match": "^4.0.0"
   },
   "engines": {
     "node": ">=4",

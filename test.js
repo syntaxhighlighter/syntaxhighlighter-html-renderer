@@ -1,7 +1,7 @@
 const $ = require('cheerio');
 const chai = require('chai');
 const fs = require('fs');
-const parser = require('parser');
+const match = require('syntaxhighlighter-match');
 const Renderer = require('./html-renderer');
 const expect = chai.expect;
 
@@ -13,7 +13,7 @@ const REGEX_LIST = [
 const CODE = fs.readFileSync(`${__dirname}/fixture.js`, 'utf8');
 
 function getHtml(code, opts = {}) {
-  const matches = parser.parse(code, opts.regexList || REGEX_LIST);
+  const matches = match.applyRegexList(code, opts.regexList || REGEX_LIST);
   const renderer = new Renderer(code, matches, opts);
   return renderer.getHtml();
 }
