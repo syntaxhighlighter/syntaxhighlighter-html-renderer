@@ -1,5 +1,5 @@
 {
-  "name": "@alexgorbatchev/html-renderer",
+  "name": "html-renderer",
   "version": "4.0.0",
   "description": "HTML renderer module for SyntaxHighlighter.",
   "keywords": [
@@ -28,7 +28,7 @@
     "chai": "^3.4.1",
     "cheerio": "^0.19.0",
     "mocha": "^2.3.4",
-    "parser": "syntaxhighlighter/parser"
+    "parser": "^4.0.0"
   },
   "engines": {
     "node": ">=4",

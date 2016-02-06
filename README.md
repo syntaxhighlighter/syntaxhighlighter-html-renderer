@@ -6,7 +6,7 @@ HTML renderer module for [SyntaxHighlighter](https://github.com/syntaxhighlighte
 
 ## Installation
 
-    npm install @alexgorbatchev/html-renderer
+    npm install html-renderer
 
 ## Testing
 

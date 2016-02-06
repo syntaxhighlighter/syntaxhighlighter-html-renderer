@@ -1,7 +1,7 @@
 const $ = require('cheerio');
 const chai = require('chai');
 const fs = require('fs');
-const parser = require('@alexgorbatchev/parser');
+const parser = require('parser');
 const Renderer = require('./html-renderer');
 const expect = chai.expect;
 
