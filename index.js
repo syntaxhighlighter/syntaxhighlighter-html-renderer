@@ -39,7 +39,7 @@ function getLinesToHighlight(opts)
   return results;
 }
 
-function Renderer(code, matches, opts)
+export default function Renderer(code, matches, opts)
 {
   var _this = this;
 
@@ -388,5 +388,3 @@ Renderer.prototype = {
     return html;
   },
 };
-
-module.exports = Renderer;

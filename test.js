@@ -1,9 +1,8 @@
-const $ = require('cheerio');
-const chai = require('chai');
-const fs = require('fs');
-const match = require('syntaxhighlighter-match');
-const Renderer = require('./html-renderer');
-const expect = chai.expect;
+import $ from 'cheerio';
+import { expect } from 'chai';
+import fs from 'fs';
+import { applyRegexList } from 'syntaxhighlighter-match';
+import Renderer from '.';
 
 const REGEX_LIST = [
   {regex: /hello|world/g, css: 'greeting'},
@@ -13,12 +12,12 @@ const REGEX_LIST = [
 const CODE = fs.readFileSync(`${__dirname}/fixture.js`, 'utf8');
 
 function getHtml(code, opts = {}) {
-  const matches = match.applyRegexList(code, opts.regexList || REGEX_LIST);
+  const matches = applyRegexList(code, opts.regexList || REGEX_LIST);
   const renderer = new Renderer(code, matches, opts);
   return renderer.getHtml();
 }
 
-describe('html-renderer', function() {
+describe('syntaxhighlighter-html-renderer', function() {
   let element = null;
 
   function itHasElements({gutter, lineCount, firstLine = 1, highlight = []} = {}) {
