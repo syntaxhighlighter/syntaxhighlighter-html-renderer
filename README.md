@@ -11,7 +11,7 @@ HTML renderer module for [SyntaxHighlighter](https://github.com/syntaxhighlighte
 ## Installation
 
 ```
-npm install html-renderer
+npm install syntaxhighlighter-html-renderer
 ```
 
 ## Testing
